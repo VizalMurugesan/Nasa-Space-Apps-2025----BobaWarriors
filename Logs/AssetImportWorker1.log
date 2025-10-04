@@ -194,3 +194,31 @@ Received Import Request.
 Start importing Assets/InputSystem_Actions.inputactions using Guid(2bcd2660ca9b64942af0de543d8d7100) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6b2564eaa9f4e1c9db0aa8e3ea579112') in 0.0820524 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 19
 
+========================================================================
+Received Import Request.
+  Time since last request: 1862.697288 seconds.
+  path: Assets/Farming Asset Pack/farming-cow.png
+  artifactKey: Guid(e2bde586482642d44a270276574c0129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-cow.png using Guid(e2bde586482642d44a270276574c0129) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fb7f4fcf8171079b572c0cc7ce6534ed') in 0.4935212 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Farming Asset Pack/farming-pig.png
+  artifactKey: Guid(0206dfbd82753ea42bff2c1b0a56966d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-pig.png using Guid(0206dfbd82753ea42bff2c1b0a56966d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5e119dfafd19804d85e096173c56a355') in 0.07641 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Farming Asset Pack/farming-tileset.png
+  artifactKey: Guid(2700e06d970d112489ff23cfb58c3f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-tileset.png using Guid(2700e06d970d112489ff23cfb58c3f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c05776c8cee94a22d076b9f5f1dfc45a') in 1.3489327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 158
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
