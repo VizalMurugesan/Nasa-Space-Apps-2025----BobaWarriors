@@ -202,3 +202,47 @@ Received Import Request.
 Start importing Assets/DefaultVolumeProfile.asset using Guid(3f9215ea0144899419cfbc0957140d3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '65636432c56742a06922c04c04ec00a3') in 0.0019042 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
+========================================================================
+Received Import Request.
+  Time since last request: 1860.659407 seconds.
+  path: Assets/Farming Asset Pack
+  artifactKey: Guid(86ba0e6db7f1eb741b04792ea5f65861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack using Guid(86ba0e6db7f1eb741b04792ea5f65861) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cafed0fd918f1efe67e44c965b360d15') in 0.0015467 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.714141 seconds.
+  path: Assets/Farming Asset Pack/farming-chicken.png
+  artifactKey: Guid(1577f106ceccd624895112215c69960a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-chicken.png using Guid(1577f106ceccd624895112215c69960a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8ef13fb33a73bbc0d70be552aec6a0f7') in 0.5058152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Farming Asset Pack/farming-water.png
+  artifactKey: Guid(548079c1be946ba439b4d76b2085ea31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-water.png using Guid(548079c1be946ba439b4d76b2085ea31) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c1632c2af5d1b6bdf248bb33734fcded') in 0.1279162 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 20
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/Farming Asset Pack/farming-houses.png
+  artifactKey: Guid(037b2d58280f32e459042d7c4740d028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-houses.png using Guid(037b2d58280f32e459042d7c4740d028) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3af03264bafcb58f9e535af263a49799') in 0.0982222 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Farming Asset Pack/farming-emotions.png
+  artifactKey: Guid(377d0838804322045b60e51d883c3c1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Farming Asset Pack/farming-emotions.png using Guid(377d0838804322045b60e51d883c3c1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae62a80653fe7b43198b5e0d12688ec3') in 0.1570131 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
