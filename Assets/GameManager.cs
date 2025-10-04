@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     float TotalTime;
     float phaseTime;
     [SerializeField] float Phase1Duration;
     [SerializeField] float Phase2Duration;
     [SerializeField] float Phase3Duration;
 
+    public enum Area { polar, Temperate, tropical, Equitorial}
+
     public enum Phase { one, two, three }
     [SerializeField] Phase phase = Phase.one;
     public List<GameObject> Farms;
 
+    
+
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         Seed seed = GetComponent<Seed>();
         foreach(var farm in Farms)
         {
@@ -61,5 +72,42 @@ public class GameManager : MonoBehaviour
         phaseTime = 0f;
     }
 
+    public void SetAreaPolar()
+    {
+        Debug.Log("polar");
+    }
 
+    public void SetAreaTemperate()
+    {
+        Debug.Log("Temperate");
+    }
+    public void SetAreaTropical()
+    {
+        Debug.Log("Tropical");
+    }
+
+    public void SetAreaEquitorial()
+    {
+        Debug.Log("Equitorial");
+
+    }
+
+    public void CheckForArea(Vector2 pos)
+    {
+        float x = pos.x;
+        float screenWidth = Screen.width;
+        // Divide screen into 4 equal vertical zones:
+        if (x < screenWidth * 0.25f)
+        {
+            SetAreaPolar();
+        }
+        else if (x < screenWidth * 0.5f)
+        {
+            SetAreaTemperate();
+        }
+        else if (x < screenWidth * 0.75f)
+        {
+            SetAreaTropical();
+        }
+    }
 }
