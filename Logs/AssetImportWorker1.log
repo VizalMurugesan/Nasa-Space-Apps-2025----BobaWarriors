@@ -1,8 +1,8 @@
 Using pre-set license
 Built from '6000.1/staging' branch; Version is '6000.1.5f1 (923722cbbcfc) revision 9582370'; Using compiler version '194234433'; Build Type 'Release'
-OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'en' Physical Memory: 15790 MB
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'en' Physical Memory: 16197 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
-Date: 2025-10-04T18:59:47Z
+Date: 2025-10-04T22:50:39Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.1.5f1\Editor\Unity.exe
@@ -12,21 +12,21 @@ C:\Program Files\Unity\Hub\Editor\6000.1.5f1\Editor\Unity.exe
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/vizal/Documents/GitHub/Nasa-Space-Apps-2025----BobaWarriors
+C:/Users/Admin/OneDrive - Trinity Western University/Documents/NASA Space Challenge 2025 -/Nasa-Space-Apps-2025----BobaWarriors
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-52992
+61539
 -job-worker-count
-7
+5
 -background-job-worker-count
 8
 -gc-helper-count
 1
 -name
 AssetImport
-Successfully changed project path to: C:/Users/vizal/Documents/GitHub/Nasa-Space-Apps-2025----BobaWarriors
-C:/Users/vizal/Documents/GitHub/Nasa-Space-Apps-2025----BobaWarriors
+Successfully changed project path to: C:/Users/Admin/OneDrive - Trinity Western University/Documents/NASA Space Challenge 2025 -/Nasa-Space-Apps-2025----BobaWarriors
+C:/Users/Admin/OneDrive - Trinity Western University/Documents/NASA Space Challenge 2025 -/Nasa-Space-Apps-2025----BobaWarriors
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-allocator-temp-initial-block-size-main=262144"
     "memorysetup-allocator-temp-initial-block-size-worker=262144"
@@ -62,13 +62,13 @@ C:/Users/vizal/Documents/GitHub/Nasa-Space-Apps-2025----BobaWarriors
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [23980]  Target information:
+Player connection [28436]  Target information:
 
-Player connection [23980]  * "[IP] 192.168.203.55 [Port] 0 [Flags] 2 [Guid] 3565128501 [EditorId] 3565128501 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9M3SPQEC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [28436]  * "[IP] 192.168.200.116 [Port] 0 [Flags] 2 [Guid] 1605578451 [EditorId] 1605578451 [Version] 1048832 [Id] WindowsEditor(7,Kenneth) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [23980] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [23980] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 7
+Player connection [28436] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [28436] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -79,146 +79,148 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 18.85 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 19.44 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.1.5f1 (923722cbbcfc)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.1.5f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/vizal/Documents/GitHub/Nasa-Space-Apps-2025----BobaWarriors/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Admin/OneDrive - Trinity Western University/Documents/NASA Space Challenge 2025 -/Nasa-Space-Apps-2025----BobaWarriors/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:         Direct3D 12 [level 12.1]
-    Renderer:        NVIDIA GeForce RTX 3050 Laptop GPU (ID=0x25a2)
+    Renderer:        NVIDIA GeForce RTX 2060 (ID=0x1f15)
     Vendor:          NVIDIA
-    VRAM:            3964 MB
-    App VRAM Budget: 3369 MB
-    Driver:          32.0.15.6607
+    VRAM:            5980 MB
+    App VRAM Budget: 5212 MB
+    Driver:          30.0.15.1179
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.1.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.1.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.1.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56036
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56656
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.1.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005361 seconds.
-- Loaded All Assemblies, in  1.046 seconds
+Registered in 0.010769 seconds.
+- Loaded All Assemblies, in  2.956 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.157 seconds
-Domain Reload Profiling: 3197ms
-	BeginReloadAssembly (536ms)
+- Finished resetting the current domain, in  2.879 seconds
+Domain Reload Profiling: 5819ms
+	BeginReloadAssembly (1134ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (2ms)
-	RebuildCommonClasses (69ms)
-	RebuildNativeTypeToScriptingClass (20ms)
-	initialDomainReloadingComplete (89ms)
-	LoadAllAssembliesAndSetupDomain (324ms)
-		LoadAssemblies (479ms)
+		CreateAndSetChildDomain (4ms)
+	RebuildCommonClasses (295ms)
+	RebuildNativeTypeToScriptingClass (123ms)
+	initialDomainReloadingComplete (368ms)
+	LoadAllAssembliesAndSetupDomain (1018ms)
+		LoadAssemblies (1115ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (318ms)
-			TypeCache.Refresh (316ms)
-				TypeCache.ScanAssembly (291ms)
-			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (2158ms)
+		AnalyzeDomain (999ms)
+			TypeCache.Refresh (992ms)
+				TypeCache.ScanAssembly (906ms)
+			BuildScriptInfoCaches (1ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (2881ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2032ms)
+		SetupLoadedEditorAssemblies (2585ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (122ms)
-			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (264ms)
-			ProcessInitializeOnLoadAttributes (708ms)
-			ProcessInitializeOnLoadMethodAttributes (929ms)
+			InitializePlatformSupportModulesInManaged (265ms)
+			SetLoadedEditorAssemblies (28ms)
+			BeforeProcessingInitializeOnLoad (688ms)
+			ProcessInitializeOnLoadAttributes (1115ms)
+			ProcessInitializeOnLoadMethodAttributes (490ms)
 			AfterProcessingInitializeOnLoad (0ms)
-			EditorAssembliesLoaded (1ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 ========================================================================
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  3.046 seconds
-Refreshing native plugins compatible for Editor in 9.24 ms, found 4 plugins.
+DirectoryNotFoundException: Could not find a part of the path "C:\Users\Admin\OneDrive - Trinity Western University\Documents\NASA Space Challenge 2025 -\Nasa-Space-Apps-2025----BobaWarriors\Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll"
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <71119615d44348f087b10ce3c1671c84>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00000] in <71119615d44348f087b10ce3c1671c84>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at Mono.Cecil.ModuleDefinition.GetFileStream (System.String fileName, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00006] in <a6860a9f6366437387ebdc1f225b7fd4>:0 
+  at Mono.Cecil.ModuleDefinition.ReadModule (System.String fileName, Mono.Cecil.ReaderParameters parameters) [0x00008] in <a6860a9f6366437387ebdc1f225b7fd4>:0 
+  at Mono.Cecil.AssemblyDefinition.ReadAssembly (System.String fileName, Mono.Cecil.ReaderParameters parameters) [0x00000] in <a6860a9f6366437387ebdc1f225b7fd4>:0 
+  at UnityEditor.AssemblyValidation.LoadAssemblyDefinitions (System.String[] assemblyPaths, System.String[] searchPaths) [0x00048] in <1d4abd3cd5ee415ab29235fc867cd8e6>:0 
+  at UnityEditor.AssemblyValidation.ValidateAssemblies (System.String[] assemblyPaths, System.Boolean enableLogging) [0x00007] in <1d4abd3cd5ee415ab29235fc867cd8e6>:0 
+
+- Loaded All Assemblies, in 36.163 seconds
+Refreshing native plugins compatible for Editor in 9.72 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.919 seconds
-Domain Reload Profiling: 5920ms
-	BeginReloadAssembly (608ms)
+- Finished resetting the current domain, in  6.912 seconds
+Domain Reload Profiling: 43035ms
+	BeginReloadAssembly (931ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (12ms)
+		DisableScriptedObjects (38ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (83ms)
-	RebuildCommonClasses (132ms)
-	RebuildNativeTypeToScriptingClass (38ms)
-	initialDomainReloadingComplete (175ms)
-	LoadAllAssembliesAndSetupDomain (2047ms)
-		LoadAssemblies (1521ms)
+		CreateAndSetChildDomain (105ms)
+	RebuildCommonClasses (257ms)
+	RebuildNativeTypeToScriptingClass (99ms)
+	initialDomainReloadingComplete (285ms)
+	LoadAllAssembliesAndSetupDomain (34548ms)
+		LoadAssemblies (31422ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (913ms)
-			TypeCache.Refresh (693ms)
-				TypeCache.ScanAssembly (644ms)
-			BuildScriptInfoCaches (180ms)
-			ResolveRequiredComponents (32ms)
-	FinalizeReload (2920ms)
+		AnalyzeDomain (3642ms)
+			TypeCache.Refresh (2796ms)
+				TypeCache.ScanAssembly (2583ms)
+			BuildScriptInfoCaches (754ms)
+			ResolveRequiredComponents (71ms)
+	FinalizeReload (6915ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2612ms)
+		SetupLoadedEditorAssemblies (6030ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (4ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (462ms)
-			ProcessInitializeOnLoadAttributes (1570ms)
-			ProcessInitializeOnLoadMethodAttributes (536ms)
-			AfterProcessingInitializeOnLoad (35ms)
-			EditorAssembliesLoaded (0ms)
+			InitializePlatformSupportModulesInManaged (15ms)
+			SetLoadedEditorAssemblies (60ms)
+			BeforeProcessingInitializeOnLoad (1690ms)
+			ProcessInitializeOnLoadAttributes (3435ms)
+			ProcessInitializeOnLoadMethodAttributes (786ms)
+			AfterProcessingInitializeOnLoad (43ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (15ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 15.33 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (61ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 46.83 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 217 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6694 unused Assets / (5.0 MB). Loaded Objects now: 7409.
-Memory consumption went from 171.2 MB to 166.3 MB.
-Total: 26.703700 ms (FindLiveObjects: 2.382800 ms CreateObjectMapping: 1.920800 ms MarkObjects: 16.584300 ms  DeleteObjects: 5.810500 ms)
+Unloading 151 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6798 unused Assets / (5.7 MB). Loaded Objects now: 7352.
+Memory consumption went from 160.6 MB to 154.9 MB.
+Total: 83.612200 ms (FindLiveObjects: 8.957900 ms CreateObjectMapping: 3.625700 ms MarkObjects: 48.475600 ms  DeleteObjects: 22.547300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 335063.725955 seconds.
-  path: Assets/InputSystem_Actions.inputactions
-  artifactKey: Guid(2bcd2660ca9b64942af0de543d8d7100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputSystem_Actions.inputactions using Guid(2bcd2660ca9b64942af0de543d8d7100) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6b2564eaa9f4e1c9db0aa8e3ea579112') in 0.0820524 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 19
+  Time since last request: 1953647.648501 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(109e9bdd0fcc649c5bc59085c35bdc83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(109e9bdd0fcc649c5bc59085c35bdc83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '73258d2a0164082a0def4806f88e2269') in 0.0489932 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1862.697288 seconds.
-  path: Assets/Farming Asset Pack/farming-cow.png
-  artifactKey: Guid(e2bde586482642d44a270276574c0129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Farming Asset Pack/farming-cow.png using Guid(e2bde586482642d44a270276574c0129) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fb7f4fcf8171079b572c0cc7ce6534ed') in 0.4935212 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+  Time since last request: 0.000066 seconds.
+  path: Assets/New Palette.prefab
+  artifactKey: Guid(8c61bf4f0faca914795ad49c3e5a0fab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Palette.prefab using Guid(8c61bf4f0faca914795ad49c3e5a0fab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '525321e472cfb903a7f390989f9f7a19') in 1.2554893 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Farming Asset Pack/farming-pig.png
-  artifactKey: Guid(0206dfbd82753ea42bff2c1b0a56966d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Farming Asset Pack/farming-pig.png using Guid(0206dfbd82753ea42bff2c1b0a56966d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5e119dfafd19804d85e096173c56a355') in 0.07641 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/Farming Asset Pack/farming-tileset.png
-  artifactKey: Guid(2700e06d970d112489ff23cfb58c3f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Farming Asset Pack/farming-tileset.png using Guid(2700e06d970d112489ff23cfb58c3f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c05776c8cee94a22d076b9f5f1dfc45a') in 1.3489327 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 158
-
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
