@@ -299,10 +299,7 @@ if __name__ == "__main__":  # pragma: no cover
     print("Soil profile cheque:")
     print(get_soil_profile()["SoilProfileDescription"]["SoilLayers"][0])
 
-    # Date from the user's input
     today = date(2025, 5, 1)
-
-    # Coordinates should be same as the soil profile dataset
     w = get_weather(49.104, -122.66, today)
     print("Weather record:", w)
     print("Forecast tags:", predict_weather(w))

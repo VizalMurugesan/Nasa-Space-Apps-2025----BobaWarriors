@@ -239,7 +239,6 @@ class CropGame:
 
 if __name__ == "__main__":
     demo = CropGame(lat=49.104, lon=-122.66, elev=36.0)
-    # Sow date and seeds should be from the user
     demo.plant(crop_name="wheat", sowing_date=date(2025, 5, 1))
 
     print("First week:")
