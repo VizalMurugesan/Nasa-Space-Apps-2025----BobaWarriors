@@ -53,5 +53,8 @@ TagManager:
   - name: New Layer 4
     uniqueID: 2593580731
     locked: 0
+  - name: effects
+    uniqueID: 3457589821
+    locked: 0
   m_RenderingLayers:
   - Default
