@@ -365,9 +365,9 @@ RectTransform:
   - {fileID: 1135315279}
   m_Father: {fileID: 1001390532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 785, y: -365}
   m_SizeDelta: {x: 500, y: 680}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124806509
@@ -413,7 +413,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 124806510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 211362030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetIrrigationTypeToNone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &124806510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,6 +1202,15 @@ MonoBehaviour:
   SowMonth: 0
   currentTemp: 0
   TemperatureText: {fileID: 822137831}
+  HasChosenMap: 0
+  HasChosenDate: 0
+  HasPloughed: 0
+  HasSownSeed: 0
+  irrigationtype: 0
+  irrigationPanel: {fileID: 1001390531}
+  worldmap: {fileID: 1791285093}
+  rain: {fileID: 1575036885}
+  snow: {fileID: 1064103794}
 --- !u!4 &211362031
 Transform:
   m_ObjectHideFlags: 0
@@ -48575,7 +48596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1001390532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55918,9 +55939,9 @@ RectTransform:
   - {fileID: 270964100}
   m_Father: {fileID: 1001390532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 270, y: -365}
   m_SizeDelta: {x: 500, y: 680}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1334019317
@@ -55966,7 +55987,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1334019318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 211362030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetIrrigationTypeToDrip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1334019318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63024,9 +63057,9 @@ RectTransform:
   - {fileID: 1759414407}
   m_Father: {fileID: 1001390532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1300, y: -365}
   m_SizeDelta: {x: 500, y: 680}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689997347
@@ -63072,7 +63105,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1689997348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 211362030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetIrrigationTypeToHigh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1689997348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64334,9 +64379,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 211362032}
-        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
-        m_MethodName: DecreaseGameSpeed
+      - m_Target: {fileID: 211362030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OpenIrrigationPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

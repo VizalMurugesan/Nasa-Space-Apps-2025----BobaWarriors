@@ -39,7 +39,7 @@ public class TimeManager : MonoBehaviour
     float currentTimeCurrentduration = 0f;
     float TransitionTimeCurrentduration = 0f;
 
-    public float GameSpeed = 1f;
+    public float GameSpeed = 0f;
 
 
 
@@ -53,6 +53,8 @@ public class TimeManager : MonoBehaviour
         Night.SetNextTime(Morning);
         imageColor = image.color;
         currentTimeOfTheDay = Morning;
+        GameSpeed = 0f;
+        Time.timeScale = 0f;
         
         
 

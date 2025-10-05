@@ -73,6 +73,7 @@ public class DateMonthChoiceManager : MonoBehaviour
         {
             GameManager.Instance.SowDay = DaySelected;
             GameManager.Instance.SowMonth = MonthSelected;
+            GameManager.Instance.HasChosenDate = true;
             gameObject.SetActive(false);
         }
     }
@@ -106,6 +107,7 @@ public class DateMonthChoiceManager : MonoBehaviour
         {
             GameManager.Instance.SowDay = DaySelected;
             GameManager.Instance.SowMonth = MonthSelected;
+            GameManager.Instance.HasChosenDate = true;
             gameObject.SetActive(false);
         }
     }
