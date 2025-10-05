@@ -1020,3 +1020,95 @@ Memory consumption went from 172.1 MB to 165.5 MB.
 Total: 37.577500 ms (FindLiveObjects: 1.851600 ms CreateObjectMapping: 3.485400 ms MarkObjects: 20.079200 ms  DeleteObjects: 12.157000 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 20.30 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 32 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6787 unused Assets / (6.3 MB). Loaded Objects now: 7379.
+Memory consumption went from 174.4 MB to 168.1 MB.
+Total: 1470.539400 ms (FindLiveObjects: 5.797700 ms CreateObjectMapping: 4.139700 ms MarkObjects: 1415.642400 ms  DeleteObjects: 44.945400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+DirectoryNotFoundException: Could not find a part of the path "C:\Users\Admin\OneDrive - Trinity Western University\Documents\NASA Space Challenge 2025 -\Nasa-Space-Apps-2025----BobaWarriors\Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll"
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <71119615d44348f087b10ce3c1671c84>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00000] in <71119615d44348f087b10ce3c1671c84>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at Mono.Cecil.ModuleDefinition.GetFileStream (System.String fileName, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00006] in <a6860a9f6366437387ebdc1f225b7fd4>:0 
+  at Mono.Cecil.ModuleDefinition.ReadModule (System.String fileName, Mono.Cecil.ReaderParameters parameters) [0x00008] in <a6860a9f6366437387ebdc1f225b7fd4>:0 
+  at Mono.Cecil.AssemblyDefinition.ReadAssembly (System.String fileName, Mono.Cecil.ReaderParameters parameters) [0x00000] in <a6860a9f6366437387ebdc1f225b7fd4>:0 
+  at UnityEditor.AssemblyValidation.LoadAssemblyDefinitions (System.String[] assemblyPaths, System.String[] searchPaths) [0x00048] in <1d4abd3cd5ee415ab29235fc867cd8e6>:0 
+  at UnityEditor.AssemblyValidation.ValidateAssemblies (System.String[] assemblyPaths, System.Boolean enableLogging) [0x00007] in <1d4abd3cd5ee415ab29235fc867cd8e6>:0 
+
+- Loaded All Assemblies, in 12.025 seconds
+Refreshing native plugins compatible for Editor in 15.49 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  4.701 seconds
+Domain Reload Profiling: 16680ms
+	BeginReloadAssembly (4547ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (300ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (1906ms)
+	RebuildCommonClasses (1568ms)
+	RebuildNativeTypeToScriptingClass (236ms)
+	initialDomainReloadingComplete (1324ms)
+	LoadAllAssembliesAndSetupDomain (4301ms)
+		LoadAssemblies (4280ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1893ms)
+			TypeCache.Refresh (122ms)
+				TypeCache.ScanAssembly (10ms)
+			BuildScriptInfoCaches (1689ms)
+			ResolveRequiredComponents (58ms)
+	FinalizeReload (4703ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (3959ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (24ms)
+			BeforeProcessingInitializeOnLoad (1031ms)
+			ProcessInitializeOnLoadAttributes (2492ms)
+			ProcessInitializeOnLoadMethodAttributes (371ms)
+			AfterProcessingInitializeOnLoad (32ms)
+			EditorAssembliesLoaded (2ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (66ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 8.02 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 32 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6798 unused Assets / (6.7 MB). Loaded Objects now: 7381.
+Memory consumption went from 176.4 MB to 169.8 MB.
+Total: 39.496300 ms (FindLiveObjects: 2.405200 ms CreateObjectMapping: 3.095700 ms MarkObjects: 20.908900 ms  DeleteObjects: 13.082400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
