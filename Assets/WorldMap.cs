@@ -7,13 +7,10 @@ public class WorldMap : MonoBehaviour, IPointerClickHandler
     {
         if(eventData.button == PointerEventData.InputButton.Left)
         {
-
-            GameManager.Instance.ClickOnWorldmap();
+            GameManager.Instance.HasChosenMap = true;
+            GameManager.Instance.CheckForArea((Vector2)eventData.position);
             
         }
         
     }
-
-    
-
 }

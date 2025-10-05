@@ -13,8 +13,8 @@ public class TimeManager : MonoBehaviour
     public enum ManagerState { Basking, Transitioning}
     ManagerState State = ManagerState.Basking;
 
-    public enum Weather { Rainy, Sunny, Humid, Windy, snowy}
-    Weather weather = Weather.Sunny;
+    public enum Weather { Rainy, Sunny, Windy, snowy}
+    public Weather weather = Weather.Sunny;
     public Image WeatherPanel;
 
     [SerializeField]float MorningDuration;
@@ -145,21 +145,13 @@ public class TimeManager : MonoBehaviour
 
     public void IncreaseGameSpeed()
     {
-        if (GameManager.Instance.UnlockedAllInitialFeatures())
-        {
-            GameSpeed = Mathf.Clamp(GameSpeed *= 2, 1f, 20f);
-            Time.timeScale = GameSpeed;
-        }
-        
+        GameSpeed = Mathf.Clamp(GameSpeed *= 2, 1f, 20f);
+        Time.timeScale = GameSpeed;
     }
     public void DecreaseGameSpeed()
     {
-        if (GameManager.Instance.UnlockedAllInitialFeatures())
-        {
-            GameSpeed = Mathf.Clamp(GameSpeed /= 2, 1f, 20f);
-            Time.timeScale = GameSpeed;
-        }
-            
+        GameSpeed = Mathf.Clamp(GameSpeed /= 2, 1f, 20f);
+        Time.timeScale = GameSpeed;
     }
 
 

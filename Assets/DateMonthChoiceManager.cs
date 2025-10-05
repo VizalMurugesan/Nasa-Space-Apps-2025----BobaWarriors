@@ -45,7 +45,7 @@ public class DateMonthChoiceManager : MonoBehaviour
 
     public void OnClickingDayButton(GameObject button)
     {
-        
+        Debug.Log("You clicked " + button.name);
 
         int dayVal = -1;
         foreach (var pair in DaysAndValue)
@@ -59,7 +59,7 @@ public class DateMonthChoiceManager : MonoBehaviour
 
         if (dayVal == -1)
         {
-            
+            Debug.LogWarning("Day button not found in dictionary!");
             return;
         }
 
@@ -75,7 +75,6 @@ public class DateMonthChoiceManager : MonoBehaviour
             GameManager.Instance.SowMonth = MonthSelected;
             GameManager.Instance.HasChosenDate = true;
             gameObject.SetActive(false);
-            GameManager.Instance.worldmap.SetActive(false);
         }
     }
     public void OnClickingMonthButton(GameObject button)
@@ -92,7 +91,7 @@ public class DateMonthChoiceManager : MonoBehaviour
 
         if (monthVal == -1)
         {
-            
+            Debug.LogWarning("Month button not found in dictionary!");
             return;
         }
 
@@ -110,7 +109,6 @@ public class DateMonthChoiceManager : MonoBehaviour
             GameManager.Instance.SowMonth = MonthSelected;
             GameManager.Instance.HasChosenDate = true;
             gameObject.SetActive(false);
-            GameManager.Instance.worldmap.SetActive(false);
         }
     }
     public int GetMaxDayCount(int month)
