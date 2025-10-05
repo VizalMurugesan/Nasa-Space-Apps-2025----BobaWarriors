@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public enum Area { polar, Temperate, tropical, Equitorial}
 
-    public enum Phase { one, two, three }
+    public enum Phase { one, two, three, Four }
     [SerializeField] Phase phase = Phase.one;
     public List<GameObject> Farms;
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(phase == Phase.one && phaseTime>Phase1Duration)
         {
@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
         }
 
 
-        TotalTime += Time.fixedDeltaTime;
-        phaseTime += Time.fixedDeltaTime;
+        TotalTime += Time.deltaTime;
+        phaseTime += Time.deltaTime;
     }
 
     void ChangeAllFarmsToPhase2()
@@ -74,21 +74,21 @@ public class GameManager : MonoBehaviour
 
     public void SetAreaPolar()
     {
-        Debug.Log("polar");
+        //Debug.Log("polar");
     }
 
     public void SetAreaTemperate()
     {
-        Debug.Log("Temperate");
+        //Debug.Log("Temperate");
     }
     public void SetAreaTropical()
     {
-        Debug.Log("Tropical");
+        //Debug.Log("Tropical");
     }
 
     public void SetAreaEquitorial()
     {
-        Debug.Log("Equitorial");
+        //Debug.Log("Equitorial");
 
     }
 
