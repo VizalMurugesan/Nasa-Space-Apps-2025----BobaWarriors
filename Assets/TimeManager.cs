@@ -91,7 +91,7 @@ public class TimeManager : MonoBehaviour
         
 
         TotalTime += Time.deltaTime;
-        Time.timeScale = GameSpeed;
+        
     }
 
    
@@ -131,7 +131,7 @@ public class TimeManager : MonoBehaviour
     {
         if (time.Equals(Timeoftheday.Morning))
         {
-            Debug.Log("weather changed");
+            //Debug.Log("weather changed");
             
             DayCount++;
             DayCountText.text = "Days : " + DayCount;
@@ -139,6 +139,16 @@ public class TimeManager : MonoBehaviour
             
     }
 
+    public void IncreaseGameSpeed()
+    {
+        GameSpeed = Mathf.Clamp(GameSpeed *= 2, 1f, 20f);
+        Time.timeScale = GameSpeed;
+    }
+    public void DecreaseGameSpeed()
+    {
+        GameSpeed = Mathf.Clamp(GameSpeed /= 2, 1f, 20f);
+        Time.timeScale = GameSpeed;
+    }
 }
 
 public class TimeOfTheDay

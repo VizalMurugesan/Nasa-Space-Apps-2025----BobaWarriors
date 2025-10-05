@@ -74,21 +74,21 @@ public class GameManager : MonoBehaviour
 
     public void SetAreaPolar()
     {
-        Debug.Log("polar");
+        //Debug.Log("polar");
     }
 
     public void SetAreaTemperate()
     {
-        Debug.Log("Temperate");
+        //Debug.Log("Temperate");
     }
     public void SetAreaTropical()
     {
-        Debug.Log("Tropical");
+        //Debug.Log("Tropical");
     }
 
     public void SetAreaEquitorial()
     {
-        Debug.Log("Equitorial");
+        //Debug.Log("Equitorial");
 
     }
 
