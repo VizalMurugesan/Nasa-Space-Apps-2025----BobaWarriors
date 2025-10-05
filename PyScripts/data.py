@@ -295,7 +295,6 @@ def predict_weather(weather_data: Optional[Dict[str, float]]) -> Optional[List[s
     return predictions or None
 
 
-
 if __name__ == "__main__":  # pragma: no cover
     print("Soil profile cheque:")
     print(get_soil_profile()["SoilProfileDescription"]["SoilLayers"][0])

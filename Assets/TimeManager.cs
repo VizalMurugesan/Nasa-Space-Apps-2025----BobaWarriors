@@ -23,7 +23,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] float Transitionduration;
     [SerializeField] TextMeshProUGUI DayCountText;
 
-    int DayCount;
+    public int DayCount;
 
     
     public TimeOfTheDay currentTimeOfTheDay;
@@ -31,6 +31,8 @@ public class TimeManager : MonoBehaviour
     public Image image;
    
     Color imageColor;
+
+    public SpriteRenderer SnowSprite;
 
     //TimeOfTheDay nextTime;
     public float TotalTime = 0f;
@@ -149,6 +151,8 @@ public class TimeManager : MonoBehaviour
         GameSpeed = Mathf.Clamp(GameSpeed /= 2, 1f, 20f);
         Time.timeScale = GameSpeed;
     }
+
+
 }
 
 public class TimeOfTheDay

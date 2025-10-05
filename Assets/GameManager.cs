@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float Phase1Duration;
     [SerializeField] float Phase2Duration;
     [SerializeField] float Phase3Duration;
+    public TimeManager timeManager;
 
     public enum Area { polar, Temperate, tropical, Equitorial}
 
@@ -17,6 +19,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Phase phase = Phase.one;
     public List<GameObject> Farms;
 
+    public int SowDay;
+    public int SowMonth;
+
+    public float currentTemp;
+    public TextMeshProUGUI TemperatureText;
+
+    
     
 
     private void Awake()
@@ -32,6 +41,7 @@ public class GameManager : MonoBehaviour
         {
             farm.GetComponent<Farm>().SetPlotSprites(seed.phase1sprite, seed.phase2sprite, seed.phase3sprite);
         }
+        timeManager = GetComponent<TimeManager>();
     }
 
     private void Update()
@@ -110,4 +120,19 @@ public class GameManager : MonoBehaviour
             SetAreaTropical();
         }
     }
+
+    public string GetSownDate()
+    {
+        return "" + SowDay + "." + SowMonth;
+    }
+
+    public void SetTemperature(float value)
+    {
+        currentTemp = value;
+        TemperatureText.text = "Temp: " + value;
+
+    }
+    
+   
+    
 }
