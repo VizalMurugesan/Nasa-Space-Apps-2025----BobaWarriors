@@ -112,7 +112,6 @@ public class TimeManager : MonoBehaviour
         State = ManagerState.Basking;
         ChangeToNextTime();
         CalculateWeather();
-        GameManager.Instance.SetBarValues(20, 0.2f, 1400);
        
         TransitionTimeCurrentduration = 0f;
         currentTimeCurrentduration = 0f;
@@ -135,17 +134,14 @@ public class TimeManager : MonoBehaviour
     public void CalculateWeather()
     {
         if (time.Equals(Timeoftheday.Morning))
-        { 
+        {
+            //Debug.Log("weather changed");
             
             DayCount++;
             DayCountText.text = "Days : " + DayCount;
         }
             
     }
-
-    
-
-
 
     public void IncreaseGameSpeed()
     {
