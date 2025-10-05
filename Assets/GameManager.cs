@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,14 +9,19 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     float TotalTime;
     float phaseTime;
+
+
+
+    [SerializeField] float Phase0Duration;
     [SerializeField] float Phase1Duration;
     [SerializeField] float Phase2Duration;
     [SerializeField] float Phase3Duration;
     public TimeManager timeManager;
+    public DateMonthChoiceManager dateandtimeselectmanager;
 
     public enum Area { polar, Temperate, tropical, Equitorial}
 
-    public enum Phase { one, two, three, Four }
+    public enum Phase {None, one, two, three }
     [SerializeField] Phase phase = Phase.one;
     public List<GameObject> Farms;
 
@@ -40,6 +46,10 @@ public class GameManager : MonoBehaviour
     public ParticleSystem rain;
     public ParticleSystem snow;
 
+    public UIBar NitrogenBar;
+    public UIBar YieldBar;
+    public UIBar MoistureBar;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -60,6 +70,10 @@ public class GameManager : MonoBehaviour
     {
         if (HasChosenDate && HasChosenMap&& HasPloughed && HasSownSeed)
         {
+            if(phase == Phase.None && phaseTime> Phase0Duration)
+            {
+                ChangeAllFarmsToPhase1();
+            }
             if (phase == Phase.one && phaseTime > Phase1Duration)
             {
                 ChangeAllFarmsToPhase2();
@@ -96,6 +110,17 @@ public class GameManager : MonoBehaviour
 
         }
         phase = Phase.three;
+        phaseTime = 0f;
+    }
+
+    void ChangeAllFarmsToPhase1()
+    {
+        foreach (var farm in Farms)
+        {
+            farm.GetComponent<Farm>().ChangeAllPlotToPhase1();
+
+        }
+        phase = Phase.one;
         phaseTime = 0f;
     }
 
@@ -154,6 +179,7 @@ public class GameManager : MonoBehaviour
     {
         irrigationtype = IrrigationType.None;
         irrigationPanel.SetActive(false);
+        continueGame();
 
     }
 
@@ -161,36 +187,116 @@ public class GameManager : MonoBehaviour
     {
         irrigationtype = IrrigationType.drip;
         irrigationPanel.SetActive(false);
+        continueGame();
 
     }
     public void SetIrrigationTypeToHigh()
     {
         irrigationtype = IrrigationType.high;
         irrigationPanel.SetActive(false);
+        continueGame();
 
     }
 
     public void OpenIrrigationPanel()
     {
         irrigationPanel.SetActive(true);
+        StopGame();
     }
 
     public void Plough()
     {
         HasPloughed = true;
+        foreach(var farm in Farms)
+        {
+            foreach(var plot in farm.GetComponent<Farm>().farmPlots)
+            {
+                plot.transform.GetChild(0).gameObject.SetActive(true);
+            }
+        }
 
     }
 
     public void SowSeed()
     {
-        HasSownSeed = true;
-        Time.timeScale = 1f;
+        if (HasPloughed)
+        {
+            HasSownSeed = true;
+            Time.timeScale = 1f;
+        }
+        
     }
 
     public void ClickOnWorldmap()
     {
-        worldmap.SetActive(false);
+        
         HasChosenMap = true;
+        dateandtimeselectmanager.gameObject.SetActive(true);
 
+    }
+
+    public void StopGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void continueGame()
+    {
+        Time.timeScale = timeManager.GameSpeed;
+    }
+
+    internal bool UnlockedAllInitialFeatures()
+    {
+        return HasChosenMap && HasChosenDate && HasPloughed && HasSownSeed;
+    }
+
+    public void SetBarValues(float NitrogenVal, float moistureVal, float yieldVal)
+    {
+        NitrogenBar.ChangeValue(NitrogenVal);
+        MoistureBar.ChangeValue(moistureVal);
+        YieldBar.ChangeValue(yieldVal);
+    }
+
+    public void SetWeatherToSunny()
+    {
+        snow.gameObject.SetActive(false);
+        rain.gameObject.SetActive(false);
+    }
+
+    public void SetWeatherToRainy()
+    {
+        snow.gameObject.SetActive(false);
+        rain.gameObject.SetActive(true);
+    }
+
+    public void SetWeatherToSnow()
+    {
+        snow.gameObject.SetActive(true);
+        rain.gameObject.SetActive(false);
+    }
+
+    public void SetWeatherToWindy()
+    {
+
+    }
+
+    public void SetWeather(string weather)
+    {
+        if (weather.Equals("Rainy"))
+        {
+            SetWeatherToRainy();
+        }
+        else if (weather.Equals("Sunny"))
+        {
+            SetWeatherToSunny();
+        }
+        else if (weather.Equals("Windy"))
+        {
+            SetWeatherToWindy();
+        }
+        else if (weather.Equals("Snowy"))
+        {
+            SetWeatherToSnow();
+        }
     }
 }
