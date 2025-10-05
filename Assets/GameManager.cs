@@ -31,8 +31,14 @@ public class GameManager : MonoBehaviour
     public bool HasPloughed;
     public bool HasSownSeed;
 
-    
-    
+    public enum IrrigationType { None, high, drip}
+    public IrrigationType irrigationtype;
+    public GameObject irrigationPanel;
+
+    public GameObject worldmap;
+
+    public ParticleSystem rain;
+    public ParticleSystem snow;
 
     private void Awake()
     {
@@ -143,7 +149,48 @@ public class GameManager : MonoBehaviour
         TemperatureText.text = "Temp: " + value;
 
     }
-    
-   
-    
+
+    public void SetIrrigationTypeToNone()
+    {
+        irrigationtype = IrrigationType.None;
+        irrigationPanel.SetActive(false);
+
+    }
+
+    public void SetIrrigationTypeToDrip()
+    {
+        irrigationtype = IrrigationType.drip;
+        irrigationPanel.SetActive(false);
+
+    }
+    public void SetIrrigationTypeToHigh()
+    {
+        irrigationtype = IrrigationType.high;
+        irrigationPanel.SetActive(false);
+
+    }
+
+    public void OpenIrrigationPanel()
+    {
+        irrigationPanel.SetActive(true);
+    }
+
+    public void Plough()
+    {
+        HasPloughed = true;
+
+    }
+
+    public void SowSeed()
+    {
+        HasSownSeed = true;
+        Time.timeScale = 1f;
+    }
+
+    public void ClickOnWorldmap()
+    {
+        worldmap.SetActive(false);
+        HasChosenMap = true;
+
+    }
 }
