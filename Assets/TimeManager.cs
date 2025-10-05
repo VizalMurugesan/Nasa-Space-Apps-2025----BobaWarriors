@@ -112,6 +112,7 @@ public class TimeManager : MonoBehaviour
         State = ManagerState.Basking;
         ChangeToNextTime();
         CalculateWeather();
+        GameManager.Instance.SetBarValues(20, 0.2f, 1400);
        
         TransitionTimeCurrentduration = 0f;
         currentTimeCurrentduration = 0f;
