@@ -76,6 +76,3 @@ public class PythonUnityConnector : MonoBehaviour
         Debug.Log("Closed connection to Python server.");
     }
 }
-
-
-
