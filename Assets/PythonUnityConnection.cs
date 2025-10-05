@@ -9,7 +9,8 @@ public class PythonUnityConnector : MonoBehaviour
     NetworkStream stream;
 
     //Initializing variables that are going to be sent to python
-    public string date, typeOfFertilizer, typeOfIrrigation, crop;
+    //public string date = GameManager.Instance.GetSowedDate();
+    public string typeOfFertilizer, typeOfIrrigation, crop;
 
     void Start()
     {
@@ -59,7 +60,7 @@ public class PythonUnityConnector : MonoBehaviour
              *  fert - no need to be returned,
              *  iri - no need to be returned.
              *  Unless it is needed for the outcome messages **/
-            //Debug.Log($"Python returned: {response}");
+            Debug.Log($"Python returned: ");
         }
         catch (Exception e)
         {

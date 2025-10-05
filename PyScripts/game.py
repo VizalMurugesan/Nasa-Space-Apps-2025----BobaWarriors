@@ -1,5 +1,5 @@
-import socket
 from __future__ import annotations
+import socket
 
 from datetime import date, timedelta
 from difflib import get_close_matches
@@ -243,10 +243,10 @@ server.bind(("127.0.0.1", 5005))
 server.listen(1)
 print("Server listening...")
 
-conn, addr = server.accept()
-print("Connected by", addr)
 
 while True:
+    conn, addr = server.accept()
+    print("Connected by", addr)
     data = conn.recv(1024).decode()
     if not data:
         break
