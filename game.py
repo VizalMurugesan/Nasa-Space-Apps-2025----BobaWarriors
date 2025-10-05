@@ -1,5 +1,4 @@
 from __future__ import annotations
-import socket
 
 from datetime import date, timedelta
 from difflib import get_close_matches
@@ -238,46 +237,20 @@ class CropGame:
         return state
 
 
-server = socket.socket()
-server.bind(("127.0.0.1", 5005))
-server.listen(1)
-print("Server listening...")
+if __name__ == "__main__":
+    demo = CropGame(lat=49.104, lon=-122.66, elev=36.0)
+    # Sow date and seeds should be from the user
+    demo.plant(crop_name="wheat", sowing_date=date(2025, 5, 1))
 
+    print("First week:")
+    for _ in range(7):
+        day, state = demo.tick()
+        print(day, state)
 
-while True:
-    conn, addr = server.accept()
-    print("Connected by", addr)
-    data = conn.recv(1024).decode()
-    if not data:
-        break
+    demo.water(2.0)
+    demo.fertilize(40.0, nh4_fraction=0.6)
 
-    try:
-        if __name__ == "__main__":
-            date, fertilizer, irrigation, crop = map(int, data.split(","))
-            today = date.today()
-            currentYear = today.year
-            date = date(currentYear, date)
-            demo = CropGame(lat=49.104, lon=-122.66, elev=36.0)
-            # Sow date and seeds should be from the user
-            demo.plant(crop_name="wheat", sowing_date=date)
-
-            print("First week:")
-            for _ in range(7):
-                day, state = demo.tick()
-                print(day, state)
-
-            demo.water(2.0)
-            demo.fertilize(40.0, nh4_fraction=0.6)
-
-            print("\nAfter irrigation and fertiliser:")
-            for _ in range(240):
-                day, state = demo.tick()
-                print(day, state)
-        # a, b = map(int, data.split(","))
-        # result = a + b
-        # print(f"Got {a} and {b}, sending back {result}")
-        # conn.send(str(result).encode())
-    except Exception as e:
-        conn.send(f"Error: {e}".encode())
-
-conn.close()
+    print("\nAfter irrigation and fertiliser:")
+    for _ in range(240):
+        day, state = demo.tick()
+        print(day, state)

@@ -9,10 +9,9 @@ public class PythonUnityConnector : MonoBehaviour
     NetworkStream stream;
 
     //Initializing variables that are going to be sent to python
-    public string date, typeOfFertilizer, typeOfIrrigation;
-    //public string typeOfFertilizer;
-    //public string typeOfIrrigation;
-    //public string seeds?
+    //public string date = GameManager.Instance.GetSowedDate();
+    public string typeOfFertilizer, typeOfIrrigation, crop;
+
     void Start()
     {
         try
@@ -32,11 +31,11 @@ public class PythonUnityConnector : MonoBehaviour
         // Press Space to send numbers
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SendVariables(date, typeOfFertilizer, typeOfIrrigation);
+            SendVariables(date, typeOfFertilizer, typeOfIrrigation, crop);
         }
     }
 
-    void SendVariables(string date, string fert, string iri)
+    void SendVariables(string date, string fert, string iri, string crop)
     {
         if (client == null || stream == null)
         {
@@ -47,7 +46,7 @@ public class PythonUnityConnector : MonoBehaviour
         try
         {
             // Send variables as one string, separated by commas
-            string message = date + "," + fert + "," + iri;
+            string message = date + "," + fert + "," + iri + "," + crop;
             byte[] data = Encoding.UTF8.GetBytes(message);
             stream.Write(data, 0, data.Length);
 
@@ -61,7 +60,7 @@ public class PythonUnityConnector : MonoBehaviour
              *  fert - no need to be returned,
              *  iri - no need to be returned.
              *  Unless it is needed for the outcome messages **/
-            //Debug.Log($"Python returned: {response}");
+            Debug.Log($"Python returned: ");
         }
         catch (Exception e)
         {
