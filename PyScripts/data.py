@@ -295,12 +295,13 @@ def predict_weather(weather_data: Optional[Dict[str, float]]) -> Optional[List[s
     return predictions or None
 
 
+
 if __name__ == "__main__":  # pragma: no cover
     print("Soil profile cheque:")
     print(get_soil_profile()["SoilProfileDescription"]["SoilLayers"][0])
 
     # Date from the user's input
-    today = date(2025, 5, 1)
+    today = date(2024, 5, 1)
 
     # Coordinates should be same as the soil profile dataset
     w = get_weather(49.104, -122.66, today)
