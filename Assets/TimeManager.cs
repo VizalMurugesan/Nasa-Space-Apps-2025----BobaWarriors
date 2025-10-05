@@ -21,6 +21,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField]float EveningDuration;
     [SerializeField]float NightDuration;
     [SerializeField] float Transitionduration;
+    [SerializeField] TextMeshProUGUI DayCountText;
+
+    int DayCount;
 
     
     public TimeOfTheDay currentTimeOfTheDay;
@@ -33,7 +36,8 @@ public class TimeManager : MonoBehaviour
     public float TotalTime = 0f;
     float currentTimeCurrentduration = 0f;
     float TransitionTimeCurrentduration = 0f;
-    List<object> AllActionsToDo;
+
+    public float GameSpeed = 1f;
 
 
 
@@ -47,16 +51,16 @@ public class TimeManager : MonoBehaviour
         Night.SetNextTime(Morning);
         imageColor = image.color;
         currentTimeOfTheDay = Morning;
-        AllActionsToDo = new List<object>();
+        
         
 
     }
-    public void FixedUpdate()
+    public void Update()
     {
         if (State.Equals(ManagerState.Basking))
         {
             
-            currentTimeCurrentduration += Time.fixedDeltaTime;
+            currentTimeCurrentduration += Time.deltaTime;
             if (currentTimeCurrentduration >= currentTimeOfTheDay.GetTimeDuration())
             {
                 ChangeStateToTransitioning();
@@ -72,7 +76,7 @@ public class TimeManager : MonoBehaviour
             imageColor.b = ColorVector.z; imageColor.a = ColorVector.w;
             image.color = imageColor;
 
-            TransitionTimeCurrentduration += Time.fixedDeltaTime;
+            TransitionTimeCurrentduration += Time.deltaTime;
 
             if(TransitionTimeCurrentduration >= Transitionduration / 2)
             {
@@ -84,30 +88,13 @@ public class TimeManager : MonoBehaviour
                 ChangeStateToBasking();
             }
         }
-        ManageActionsToDo();
-
-        TotalTime += Time.fixedDeltaTime;
         
+
+        TotalTime += Time.deltaTime;
+        Time.timeScale = GameSpeed;
     }
 
-    void ManageActionsToDo()
-    {
-        if(AllActionsToDo == null)
-        {
-            return;
-        }
-        for(int i = 0;i<AllActionsToDo.Count;i++)
-        {
-            List<object> actionToDo = (List<object>)AllActionsToDo[i];
-            //Debug.Log(actionToDo.Count);
-            if ((float)actionToDo[1] <= TotalTime)
-            {
-                Action action = (Action)actionToDo[0];
-                action.Invoke();
-                AllActionsToDo.RemoveAt(i);
-            }
-        }
-    }
+   
 
     void ChangeToNextTime()
     {
@@ -140,20 +127,16 @@ public class TimeManager : MonoBehaviour
         currentTimeCurrentduration = 0f;
     }
 
-    public void DoAnActionAfterTime(Action action, float executionTime)
-    {
-        List<object>ActionsToDo = new List<object>();
-        ActionsToDo.Add(action);
-        ActionsToDo.Add(executionTime);
-
-        AllActionsToDo.Add(ActionsToDo);
-        
-        
-    }
-
     public void CalculateWeather()
     {
-        Debug.Log("weather changed");
+        if (time.Equals(Timeoftheday.Morning))
+        {
+            Debug.Log("weather changed");
+            
+            DayCount++;
+            DayCountText.text = "Days : " + DayCount;
+        }
+            
     }
 
 }
