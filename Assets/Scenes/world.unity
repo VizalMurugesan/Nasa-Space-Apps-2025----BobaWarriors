@@ -1190,6 +1190,10 @@ MonoBehaviour:
   SowMonth: 0
   currentTemp: 0
   TemperatureText: {fileID: 822137831}
+  HasChosenMap: 0
+  HasChosenDate: 0
+  HasPloughed: 0
+  HasSownSeed: 0
 --- !u!4 &211362031
 Transform:
   m_ObjectHideFlags: 0
