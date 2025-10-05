@@ -256,4 +256,47 @@ public class GameManager : MonoBehaviour
         MoistureBar.ChangeValue(moistureVal);
         YieldBar.ChangeValue(yieldVal);
     }
+
+    public void SetWeatherToSunny()
+    {
+        snow.gameObject.SetActive(false);
+        rain.gameObject.SetActive(false);
+    }
+
+    public void SetWeatherToRainy()
+    {
+        snow.gameObject.SetActive(false);
+        rain.gameObject.SetActive(true);
+    }
+
+    public void SetWeatherToSnow()
+    {
+        snow.gameObject.SetActive(true);
+        rain.gameObject.SetActive(false);
+    }
+
+    public void SetWeatherToWindy()
+    {
+
+    }
+
+    public void SetWeather(string weather)
+    {
+        if (weather.Equals("Rainy"))
+        {
+            SetWeatherToRainy();
+        }
+        else if (weather.Equals("Sunny"))
+        {
+            SetWeatherToSunny();
+        }
+        else if (weather.Equals("Windy"))
+        {
+            SetWeatherToWindy();
+        }
+        else if (weather.Equals("Snowy"))
+        {
+            SetWeatherToSnow();
+        }
+    }
 }

@@ -135,14 +135,17 @@ public class TimeManager : MonoBehaviour
     public void CalculateWeather()
     {
         if (time.Equals(Timeoftheday.Morning))
-        {
-            //Debug.Log("weather changed");
+        { 
             
             DayCount++;
             DayCountText.text = "Days : " + DayCount;
         }
             
     }
+
+    
+
+
 
     public void IncreaseGameSpeed()
     {
