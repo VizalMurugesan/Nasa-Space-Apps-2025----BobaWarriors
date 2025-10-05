@@ -1,29 +1,20 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
-public class PythonUnityConnection : MonoBehaviour
+public class PythonUnityConnector : MonoBehaviour
 {
     TcpClient client;
     NetworkStream stream;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    //Initializing variables that are going to be sent to python
+    public string date, typeOfFertilizer, typeOfIrrigation;
+    //public string typeOfFertilizer;
+    //public string typeOfIrrigation;
+    //public string seeds?
     void Start()
     {
-        //var client = new TcpClient("127.0.0.1", 5005);
-        //var stream = client.GetStream();
-
-        //byte[] data = Encoding.UTF8.GetBytes("5,7");
-        //stream.Write(data, 0, data.Length);
-
-        //byte[] buffer = new byte[1024];
-        //int bytesRead = stream.Read(buffer, 0, buffer.Length);
-
-        // Debug.Log("Result: " + Encoding.UTF8.GetString(buffer, 0, bytesRead));
-
-        // stream.Close();
-        //client.Close();
         try
         {
             client = new TcpClient("127.0.0.1", 5005);
@@ -32,51 +23,56 @@ public class PythonUnityConnection : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("Socket error: " + e);
+            Debug.LogError("Socket error: " + e);
         }
     }
 
-    // Call this function from anywhere in Unity
-    public int SendNumbers(int a, int b)
+    void Update()
+    {
+        // Press Space to send numbers
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SendVariables(date, typeOfFertilizer, typeOfIrrigation);
+        }
+    }
+
+    void SendVariables(string date, string fert, string iri)
     {
         if (client == null || stream == null)
         {
             Debug.LogError("Not connected to Python!");
-            return -1;
+            return;
         }
 
-        // Send numbers
-        string message = a + "," + b;
-        byte[] data = Encoding.UTF8.GetBytes(message);
-        stream.Write(data, 0, data.Length);
+        try
+        {
+            // Send variables as one string, separated by commas
+            string message = date + "," + fert + "," + iri;
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            stream.Write(data, 0, data.Length);
 
-        // Receive response
-        byte[] buffer = new byte[1024];
-        int bytesRead = stream.Read(buffer, 0, buffer.Length);
-        string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+            // Receive response
+            byte[] buffer = new byte[1024];
+            int bytesRead = stream.Read(buffer, 0, buffer.Length);
+            string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
-        Debug.Log("Result from Python: " + response);
-
-        int result;
-        if (int.TryParse(response, out result))
-            return result;
-        else
-            return -1;
+            /** Needs to be outputted in the right places
+             *  date - no need to be returned,
+             *  fert - no need to be returned,
+             *  iri - no need to be returned.
+             *  Unless it is needed for the outcome messages **/
+            //Debug.Log($"Python returned: {response}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error sending/receiving data: " + e);
+        }
     }
 
     void OnApplicationQuit()
     {
         stream?.Close();
         client?.Close();
+        Debug.Log("Closed connection to Python server.");
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //int sum = connection.SendNumbers(3, 9);
-            //Debug.Log("The sum is: " + sum);
-        }
-    }
-
 }

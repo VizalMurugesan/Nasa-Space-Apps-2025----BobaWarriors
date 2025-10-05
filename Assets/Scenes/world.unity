@@ -46031,8 +46031,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b2ec9d60a247048b57467872c6877f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Months: []
-  Days: []
+  Months:
+  - {fileID: 237465371}
+  - {fileID: 618364287}
+  - {fileID: 510366867}
+  - {fileID: 1212176162}
+  - {fileID: 1192391462}
+  - {fileID: 1096620767}
+  - {fileID: 1241301889}
+  - {fileID: 607463683}
+  - {fileID: 947228775}
+  - {fileID: 1181746164}
+  - {fileID: 550952432}
+  - {fileID: 635305891}
+  Days:
+  - {fileID: 1399591313}
+  - {fileID: 317512125}
+  - {fileID: 1543463986}
+  - {fileID: 1005572818}
+  - {fileID: 238119275}
+  - {fileID: 670681645}
+  - {fileID: 1982730720}
+  - {fileID: 1478783330}
+  - {fileID: 441706580}
+  - {fileID: 1884888210}
+  - {fileID: 1964939146}
+  - {fileID: 2113712285}
+  - {fileID: 1822347126}
+  - {fileID: 1633888724}
+  - {fileID: 317359905}
+  - {fileID: 278462559}
+  - {fileID: 1979627429}
+  - {fileID: 2031232699}
+  - {fileID: 1757696265}
+  - {fileID: 729298037}
+  - {fileID: 322493996}
+  - {fileID: 416111234}
+  - {fileID: 453451151}
+  - {fileID: 509576455}
+  - {fileID: 1184064944}
+  - {fileID: 1883066243}
+  - {fileID: 2089809803}
+  - {fileID: 672356464}
+  - {fileID: 1867306906}
+  - {fileID: 703233652}
+  - {fileID: 823269248}
 --- !u!1 &670681645
 GameObject:
   m_ObjectHideFlags: 0
