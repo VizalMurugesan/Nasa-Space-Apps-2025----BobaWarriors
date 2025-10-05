@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(phase == Phase.one && phaseTime>Phase1Duration)
         {
@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
         }
 
 
-        TotalTime += Time.fixedDeltaTime;
-        phaseTime += Time.fixedDeltaTime;
+        TotalTime += Time.deltaTime;
+        phaseTime += Time.deltaTime;
     }
 
     void ChangeAllFarmsToPhase2()
