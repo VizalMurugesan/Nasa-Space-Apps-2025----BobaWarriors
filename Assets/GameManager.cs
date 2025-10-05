@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float Phase2Duration;
     [SerializeField] float Phase3Duration;
     public TimeManager timeManager;
+    public DateMonthChoiceManager dateandtimeselectmanager;
 
     public enum Area { polar, Temperate, tropical, Equitorial}
 
@@ -154,6 +156,7 @@ public class GameManager : MonoBehaviour
     {
         irrigationtype = IrrigationType.None;
         irrigationPanel.SetActive(false);
+        continueGame();
 
     }
 
@@ -161,36 +164,66 @@ public class GameManager : MonoBehaviour
     {
         irrigationtype = IrrigationType.drip;
         irrigationPanel.SetActive(false);
+        continueGame();
 
     }
     public void SetIrrigationTypeToHigh()
     {
         irrigationtype = IrrigationType.high;
         irrigationPanel.SetActive(false);
+        continueGame();
 
     }
 
     public void OpenIrrigationPanel()
     {
         irrigationPanel.SetActive(true);
+        StopGame();
     }
 
     public void Plough()
     {
         HasPloughed = true;
+        foreach(var farm in Farms)
+        {
+            foreach(var plot in farm.GetComponent<Farm>().farmPlots)
+            {
+                plot.transform.GetChild(0).gameObject.SetActive(true);
+            }
+        }
 
     }
 
     public void SowSeed()
     {
-        HasSownSeed = true;
-        Time.timeScale = 1f;
+        if (HasPloughed)
+        {
+            HasSownSeed = true;
+            Time.timeScale = 1f;
+        }
+        
     }
 
     public void ClickOnWorldmap()
     {
-        worldmap.SetActive(false);
+        
         HasChosenMap = true;
+        dateandtimeselectmanager.gameObject.SetActive(true);
 
+    }
+
+    public void StopGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void continueGame()
+    {
+        Time.timeScale = timeManager.GameSpeed;
+    }
+
+    internal bool UnlockedAllInitialFeatures()
+    {
+        return HasChosenMap && HasChosenDate && HasPloughed && HasSownSeed;
     }
 }

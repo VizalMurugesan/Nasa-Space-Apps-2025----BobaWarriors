@@ -145,13 +145,21 @@ public class TimeManager : MonoBehaviour
 
     public void IncreaseGameSpeed()
     {
-        GameSpeed = Mathf.Clamp(GameSpeed *= 2, 1f, 20f);
-        Time.timeScale = GameSpeed;
+        if (GameManager.Instance.UnlockedAllInitialFeatures())
+        {
+            GameSpeed = Mathf.Clamp(GameSpeed *= 2, 1f, 20f);
+            Time.timeScale = GameSpeed;
+        }
+        
     }
     public void DecreaseGameSpeed()
     {
-        GameSpeed = Mathf.Clamp(GameSpeed /= 2, 1f, 20f);
-        Time.timeScale = GameSpeed;
+        if (GameManager.Instance.UnlockedAllInitialFeatures())
+        {
+            GameSpeed = Mathf.Clamp(GameSpeed /= 2, 1f, 20f);
+            Time.timeScale = GameSpeed;
+        }
+            
     }
 
 
