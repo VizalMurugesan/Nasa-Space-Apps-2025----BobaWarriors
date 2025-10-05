@@ -8,15 +8,16 @@ public class PythonUnityConnector : MonoBehaviour
     TcpClient client;
     NetworkStream stream;
 
-    [Header("Numbers to send to Python")]
-    public int numberA = 5;
-    public int numberB = 7;
-
+    //Initializing variables that are going to be sent to python
+    public string date, typeOfFertilizer, typeOfIrrigation;
+    //public string typeOfFertilizer;
+    //public string typeOfIrrigation;
+    //public string seeds?
     void Start()
     {
         try
         {
-            client = new TcpClient("127.0.0.1", 5005); // Make sure Python uses the same port
+            client = new TcpClient("127.0.0.1", 5005);
             stream = client.GetStream();
             Debug.Log("Connected to Python server!");
         }
@@ -31,11 +32,11 @@ public class PythonUnityConnector : MonoBehaviour
         // Press Space to send numbers
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SendNumbers(numberA, numberB);
+            SendVariables(date, typeOfFertilizer, typeOfIrrigation);
         }
     }
 
-    void SendNumbers(int a, int b)
+    void SendVariables(string date, string fert, string iri)
     {
         if (client == null || stream == null)
         {
@@ -45,8 +46,8 @@ public class PythonUnityConnector : MonoBehaviour
 
         try
         {
-            // Send numbers as "a,b"
-            string message = a + "," + b;
+            // Send variables as one string, separated by commas
+            string message = date + "," + fert + "," + iri;
             byte[] data = Encoding.UTF8.GetBytes(message);
             stream.Write(data, 0, data.Length);
 
@@ -55,7 +56,12 @@ public class PythonUnityConnector : MonoBehaviour
             int bytesRead = stream.Read(buffer, 0, buffer.Length);
             string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
-            Debug.Log($"Python returned: {response}");
+            /** Needs to be outputted in the right places
+             *  date - no need to be returned,
+             *  fert - no need to be returned,
+             *  iri - no need to be returned.
+             *  Unless it is needed for the outcome messages **/
+            //Debug.Log($"Python returned: {response}");
         }
         catch (Exception e)
         {
