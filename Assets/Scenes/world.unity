@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 211362030}
   - component: {fileID: 211362029}
   - component: {fileID: 211362032}
+  - component: {fileID: 211362033}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1228,6 +1229,32 @@ MonoBehaviour:
   SnowSprite: {fileID: 1154731326}
   TotalTime: 0
   GameSpeed: 0
+--- !u!114 &211362033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211362028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b338c96d82f7a44dae60bd721a56df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  host: 127.0.0.1
+  port: 5005
+  readTimeoutMs: 9999999
+  date: 20261228
+  typeOfFertilizer: high
+  typeOfIrrigation: drip
+  crop: wheat
+  latitude: 49.104
+  longitude: -122.66
+  elevation: 36
+  irrigationAmountCm: 2
+  irrigationEfficiency: 0.75
+  fertilizerAmountKgHa: 40
+  fertilizerNh4Fraction: 0.7
 --- !u!1 &221025892
 GameObject:
   m_ObjectHideFlags: 0

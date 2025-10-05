@@ -4,6 +4,9 @@ from copy import deepcopy
 from datetime import date, datetime
 from typing import Dict, Iterable, List, Optional, Tuple
 
+import math
+import random
+
 try:
     import requests  # type: ignore
 except ImportError:  # pragma: no cover
@@ -239,6 +242,46 @@ def _nasa_power_weather(lat: float, lon: float, day_str: str) -> Optional[Dict[s
     }
 
 
+
+
+def _synthetic_weather(lat: float, lon: float, day: date) -> Dict[str, float]:
+    """Generate a deterministic synthetic weather profile when NASA POWER data is unavailable."""
+    doy = day.timetuple().tm_yday
+    phase = 2.0 * math.pi * (doy - 80) / 365.0
+    rnd = random.Random((hash((round(lat, 4), round(lon, 4), day.toordinal())) & 0xFFFFFFFF))
+
+    base_temp = 12.0 + 10.0 * math.sin(phase)
+    diurnal_amp = 6.0 + 2.0 * math.cos(phase)
+    tmax = base_temp + diurnal_amp + rnd.uniform(-1.0, 1.0)
+    tmin = base_temp - diurnal_amp + rnd.uniform(-1.0, 1.0)
+    temp = 0.5 * (tmax + tmin)
+
+    irr = 16_000_000.0 + 6_000_000.0 * math.sin(phase) + rnd.uniform(-1_000_000.0, 1_000_000.0)
+    irr = max(6_000_000.0, irr)
+
+    rain_base = 0.8 * (1.0 + math.sin(phase - math.pi / 3.0))
+    rain = max(0.0, rain_base + rnd.uniform(-0.3, 0.3)) * 0.8
+
+    vap = 8.0 + 6.0 * (1.0 - math.sin(phase)) + rnd.uniform(-1.0, 1.0)
+    wind = 2.0 + 0.5 * math.cos(phase) + rnd.uniform(-0.5, 0.5)
+    et0 = 0.35 + 0.25 * math.sin(phase) + rnd.uniform(-0.05, 0.05)
+
+    rain_cm = rain
+    et0_cm = max(0.0, et0)
+
+    return {
+        "IRRAD": irr,
+        "TMAX": tmax,
+        "TMIN": tmin,
+        "TEMP": temp,
+        "RAIN": rain_cm,
+        "VAP": max(0.0, vap),
+        "WIND": max(0.0, wind),
+        "E0": et0_cm,
+        "ES0": et0_cm,
+        "ET0": et0_cm,
+    }
+
 def _merge_weather(record: Optional[Dict[str, float]]) -> Dict[str, float]:
     merged = dict(_DEFAULT_WEATHER)
     if record:
@@ -260,10 +303,13 @@ def _merge_weather(record: Optional[Dict[str, float]]) -> Dict[str, float]:
     return merged
 
 
+
 def get_weather(lat: float, lon: float, day: date | str) -> Dict[str, float]:
     """Return a PCSE-compatible weather record for the given day."""
     day_obj, day_str = _normalise_day(day)
     record = _nasa_power_weather(lat, lon, day_str)
+    if record is None:
+        record = _synthetic_weather(lat, lon, day_obj)
     merged = _merge_weather(record)
     merged["DAY"] = day_obj
     return merged
