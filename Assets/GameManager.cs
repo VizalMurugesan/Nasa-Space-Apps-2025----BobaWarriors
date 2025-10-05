@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public enum Area { polar, Temperate, tropical, Equitorial}
 
-    public enum Phase { one, two, three }
+    public enum Phase { one, two, three, Four }
     [SerializeField] Phase phase = Phase.one;
     public List<GameObject> Farms;
 
