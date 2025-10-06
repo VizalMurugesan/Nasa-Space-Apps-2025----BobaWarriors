@@ -23,12 +23,9 @@ Model- Python Crop Simulation Environment (PCSE)
    
 ```pip install pcse pandas matplotlib requests```
 
-1. Retrieve weather data using the NASA POWER Daily API, which provides real-time weather parameters (such as temperature, rainfall, and humidity) for any given location.
-   API endpoint:
-   <https://power.larc.nasa.gov/api/temporal/daily/point>
-2. Open the project in Visual Studio Code for the Python scripts and Visual Studio for the Unity C# components.
+1. Run game.py, which is the data server the project.
 3. Launch Unity Hub, add the cloned project folder, and open it in Unity. Allow Unity to automatically import assets and dependencies (this may take a few minutes).
-4. Once loaded, click Play in the Unity Editor to run the simulation. Ensure your Python model connection placeholder is set up for future integration of live weather and soil data updates.
+4. Once loaded, click Play in the Unity Editor to run the simulation!
 
 **Guide to Use the SmartFarming-**
 
