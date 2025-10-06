@@ -58528,12 +58528,12 @@ RectTransform:
   - {fileID: 1864375428}
   - {fileID: 1827014216}
   - {fileID: 1379131150}
-  - {fileID: 1001390532}
   - {fileID: 2001149329}
   - {fileID: 666924348}
   - {fileID: 72240678}
   - {fileID: 1750110959}
   - {fileID: 430594403}
+  - {fileID: 1001390532}
   m_Father: {fileID: 783482622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
