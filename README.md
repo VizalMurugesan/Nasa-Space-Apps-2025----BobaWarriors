@@ -1,8 +1,4 @@
-**Project Title**
-
-SmartFarming
-
-**Description**
+# SmartFarming
 
 Smartfarming is an interactive crop management simulator that combines real-world soil and weather data with user-driven farming decisions. Through its interface, users can choose crops, set management strategies, and watch their simulations progress under realistic conditions. While Smartfarming is designed to be globally applicable, the current hackathon version focuses on one specific location for feasibility.
 
@@ -24,10 +20,8 @@ Model- Python Crop Simulation Environment (PCSE)
 
 1. Clone the repository from Github- [VizalMurugesan/Nasa-Space-Apps-2025----BobaWarriors](https://github.com/VizalMurugesan/Nasa-Space-Apps-2025----BobaWarriors/tree/main)
 2. Install Required Python Packages
-
-Open a terminal or command prompt and run:
-
-**pip install pcse pandas matplotlib requests**
+   
+```pip install pcse pandas matplotlib requests```
 
 1. Retrieve weather data using the NASA POWER Daily API, which provides real-time weather parameters (such as temperature, rainfall, and humidity) for any given location.
    API endpoint:
@@ -50,7 +44,7 @@ Open a terminal or command prompt and run:
 
 **Daiwik Bhola –** **daiwik.bhola@gmail.com**
 
-**Kenneth Renald Hoesien-** **KennethRenald.Hoesie@mytwu.ca**
+**Kenneth Renald Hoesien-** **KennethRenald@gmail.com**
 
 **Shubham Verma-** **vermashubham1980@gmail.com**
 
