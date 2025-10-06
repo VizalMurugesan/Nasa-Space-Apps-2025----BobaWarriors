@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     public UIBar YieldBar;
     public UIBar MoistureBar;
 
+    public TextMeshProUGUI MessageText;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
         }
         phase = Phase.two;
         phaseTime = 0f;
+        ShowMessageText("seeds of hardwork");
     }
 
     void ChangeAllFarmsToPhase3()
@@ -113,6 +116,8 @@ public class GameManager : MonoBehaviour
         }
         phase = Phase.three;
         phaseTime = 0f;
+
+        ShowMessageText("aha! the fields! the beutiful plants");
     }
 
     void ChangeAllFarmsToPhase1()
@@ -124,6 +129,8 @@ public class GameManager : MonoBehaviour
         }
         phase = Phase.one;
         phaseTime = 0f;
+
+        ShowMessageText("aha! the fields!");
     }
 
     public void SetAreaPolar()
@@ -227,6 +234,10 @@ public class GameManager : MonoBehaviour
             HasSownSeed = true;
             Time.timeScale = 1f;
         }
+        else
+        {
+            SendMessage("TO SowSeed remember to till SetWeather land first!");
+        }
         
     }
 
@@ -255,6 +266,13 @@ public class GameManager : MonoBehaviour
 
     public void SetBarValues(float NitrogenVal, float moistureVal, float yieldVal)
     {
+        NitrogenVal *= 1000f;
+        NitrogenVal = MathF.Round(NitrogenVal);
+
+        moistureVal *= 100000f;
+        moistureVal = MathF.Round(moistureVal);
+        moistureVal /= 100f;
+
         NitrogenBar.ChangeValue(NitrogenVal);
         MoistureBar.ChangeValue(moistureVal);
         YieldBar.ChangeValue(yieldVal);
@@ -305,5 +323,15 @@ public class GameManager : MonoBehaviour
     public void AddFert()
     {
         connector.RequestFertilizer(40, 0.7f);
+    }
+
+    public void ShowMessageText(string message)
+    {
+        MessageText.text = message;
+    }
+
+    public void ResetMessageText()
+    {
+        MessageText.text = "";
     }
 }
