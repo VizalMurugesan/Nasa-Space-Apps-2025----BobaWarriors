@@ -28,6 +28,7 @@ public class UIBar : MonoBehaviour
     public void ChangeValue(float Value)
     {
         CurrentValue = Mathf.Clamp(Value, 0f, MaximumValue);
+        float rounded = Mathf.Round(CurrentValue * 10f) / 10f;
         UpdateUI();
     }
 

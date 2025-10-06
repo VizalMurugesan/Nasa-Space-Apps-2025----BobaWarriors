@@ -4,6 +4,9 @@ from copy import deepcopy
 from datetime import date, datetime
 from typing import Dict, Iterable, List, Optional, Tuple
 
+import math
+import random
+
 try:
     import requests  # type: ignore
 except ImportError:  # pragma: no cover
@@ -225,12 +228,19 @@ def _nasa_power_weather(lat: float, lon: float, day_str: str) -> Optional[Dict[s
     else:
         et0_cm = None
 
+    snow_cm = None
+    if rain_cm is not None and tmax is not None:
+        if tmax <= 0.0:  # below freezing
+            snow_cm = rain_cm
+            rain_cm = 0.0  # all precip counted as snow
+
     return {
         "IRRAD": irr,
         "TMAX": tmax,
         "TMIN": tmin,
         "TEMP": temp,
         "RAIN": rain_cm,
+        "SNOW": snow_cm,
         "VAP": vap,
         "WIND": wind,
         "E0": et0_cm,
@@ -238,6 +248,46 @@ def _nasa_power_weather(lat: float, lon: float, day_str: str) -> Optional[Dict[s
         "ET0": et0_cm,
     }
 
+
+
+
+def _synthetic_weather(lat: float, lon: float, day: date) -> Dict[str, float]:
+    """Generate a deterministic synthetic weather profile when NASA POWER data is unavailable."""
+    doy = day.timetuple().tm_yday
+    phase = 2.0 * math.pi * (doy - 80) / 365.0
+    rnd = random.Random((hash((round(lat, 4), round(lon, 4), day.toordinal())) & 0xFFFFFFFF))
+
+    base_temp = 12.0 + 10.0 * math.sin(phase)
+    diurnal_amp = 6.0 + 2.0 * math.cos(phase)
+    tmax = base_temp + diurnal_amp + rnd.uniform(-1.0, 1.0)
+    tmin = base_temp - diurnal_amp + rnd.uniform(-1.0, 1.0)
+    temp = 0.5 * (tmax + tmin)
+
+    irr = 16_000_000.0 + 6_000_000.0 * math.sin(phase) + rnd.uniform(-1_000_000.0, 1_000_000.0)
+    irr = max(6_000_000.0, irr)
+
+    rain_base = 0.8 * (1.0 + math.sin(phase - math.pi / 3.0))
+    rain = max(0.0, rain_base + rnd.uniform(-0.3, 0.3)) * 0.8
+
+    vap = 8.0 + 6.0 * (1.0 - math.sin(phase)) + rnd.uniform(-1.0, 1.0)
+    wind = 2.0 + 0.5 * math.cos(phase) + rnd.uniform(-0.5, 0.5)
+    et0 = 0.35 + 0.25 * math.sin(phase) + rnd.uniform(-0.05, 0.05)
+
+    rain_cm = rain
+    et0_cm = max(0.0, et0)
+
+    return {
+        "IRRAD": irr,
+        "TMAX": tmax,
+        "TMIN": tmin,
+        "TEMP": temp,
+        "RAIN": rain_cm,
+        "VAP": max(0.0, vap),
+        "WIND": max(0.0, wind),
+        "E0": et0_cm,
+        "ES0": et0_cm,
+        "ET0": et0_cm,
+    }
 
 def _merge_weather(record: Optional[Dict[str, float]]) -> Dict[str, float]:
     merged = dict(_DEFAULT_WEATHER)
@@ -260,10 +310,13 @@ def _merge_weather(record: Optional[Dict[str, float]]) -> Dict[str, float]:
     return merged
 
 
+
 def get_weather(lat: float, lon: float, day: date | str) -> Dict[str, float]:
     """Return a PCSE-compatible weather record for the given day."""
     day_obj, day_str = _normalise_day(day)
     record = _nasa_power_weather(lat, lon, day_str)
+    if record is None:
+        record = _synthetic_weather(lat, lon, day_obj)
     merged = _merge_weather(record)
     merged["DAY"] = day_obj
     return merged
@@ -273,26 +326,46 @@ def predict_weather(weather_data: Optional[Dict[str, float]]) -> Optional[List[s
     if not weather_data:
         return None
 
-    rain_thresh = 0.1  # cm/day (~1 mm)
+    # Thresholds
+    snow_thresh = 0.5    # cm/day — adjust as needed
+    rain_thresh = 0.1    # cm/day (~1 mm)
     humid_thresh_hpa = 15.0
     wind_thresh = 5.0
     warm_thresh = 20.0
 
-    predictions: List[str] = []
+    # Collect detected conditions
+    detected = set()
+
+    snow = weather_data.get("SNOW")
+    if isinstance(snow, (int, float)) and snow >= snow_thresh:
+        detected.add("snowy")
+
     rain = weather_data.get("RAIN")
     if isinstance(rain, (int, float)) and rain >= rain_thresh:
-        predictions.append("rainy")
+        detected.add("rainy")
+
     vap = weather_data.get("VAP")
     if isinstance(vap, (int, float)) and vap >= humid_thresh_hpa:
-        predictions.append("humid")
+        detected.add("humid")
+
     wind = weather_data.get("WIND")
     if isinstance(wind, (int, float)) and wind >= wind_thresh:
-        predictions.append("windy")
+        detected.add("windy")
+
     tmax = weather_data.get("TMAX")
     if isinstance(tmax, (int, float)) and tmax >= warm_thresh:
-        predictions.append("sunny")
+        detected.add("sunny")
 
-    return predictions or None
+    if not detected:
+        return None
+
+    # Priority order (highest → lowest)
+    priority = ["snowy", "rainy", "sunny", "windy", "humid"]
+
+    # Sort detected conditions by priority
+    ordered_predictions = [cond for cond in priority if cond in detected]
+
+    return ordered_predictions
 
 
 if __name__ == "__main__":  # pragma: no cover
@@ -300,7 +373,7 @@ if __name__ == "__main__":  # pragma: no cover
     print(get_soil_profile()["SoilProfileDescription"]["SoilLayers"][0])
 
     # Date from the user's input
-    today = date(2025, 5, 1)
+    today = date(2024, 5, 1)
 
     # Coordinates should be same as the soil profile dataset
     w = get_weather(49.104, -122.66, today)

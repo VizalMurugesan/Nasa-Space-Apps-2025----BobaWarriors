@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float Phase3Duration;
     public TimeManager timeManager;
     public DateMonthChoiceManager dateandtimeselectmanager;
+    public PythonUnityConnector connector;
 
     public enum Area { polar, Temperate, tropical, Equitorial}
 
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour
     public UIBar YieldBar;
     public UIBar MoistureBar;
 
+    public TextMeshProUGUI MessageText;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
             farm.GetComponent<Farm>().SetPlotSprites(seed.phase1sprite, seed.phase2sprite, seed.phase3sprite);
         }
         timeManager = GetComponent<TimeManager>();
+        connector = GetComponent<PythonUnityConnector>();
     }
 
     private void Update()
@@ -83,6 +87,10 @@ public class GameManager : MonoBehaviour
                 ChangeAllFarmsToPhase3();
             }
 
+            if (NitrogenBar.CurrentValue < NitrogenBar.MaximumValue / 3f)
+            {
+                ShowMessageText("soil needs more fertilizer.");
+            }
 
             TotalTime += Time.deltaTime;
             phaseTime += Time.deltaTime;
@@ -100,6 +108,7 @@ public class GameManager : MonoBehaviour
         }
         phase = Phase.two;
         phaseTime = 0f;
+        ShowMessageText("seeds of hardwork");
     }
 
     void ChangeAllFarmsToPhase3()
@@ -111,6 +120,8 @@ public class GameManager : MonoBehaviour
         }
         phase = Phase.three;
         phaseTime = 0f;
+
+        ShowMessageText("aha! the fields! the beutiful plants");
     }
 
     void ChangeAllFarmsToPhase1()
@@ -122,6 +133,8 @@ public class GameManager : MonoBehaviour
         }
         phase = Phase.one;
         phaseTime = 0f;
+
+        ShowMessageText("aha! the fields!");
     }
 
     public void SetAreaPolar()
@@ -171,7 +184,8 @@ public class GameManager : MonoBehaviour
     public void SetTemperature(float value)
     {
         currentTemp = value;
-        TemperatureText.text = "Temp: " + value;
+        float rounded = Mathf.Round(currentTemp * 10f) / 10f;
+        TemperatureText.text = "Temp: " + rounded+ " C";
 
     }
 
@@ -223,9 +237,16 @@ public class GameManager : MonoBehaviour
         {
             HasSownSeed = true;
             Time.timeScale = 1f;
+            ShowMessageText("awesome stuff");
+        }
+        else
+        {
+            ShowMessageText("TO SowSeed remember to till land first!");
         }
         
     }
+
+    
 
     public void ClickOnWorldmap()
     {
@@ -252,6 +273,13 @@ public class GameManager : MonoBehaviour
 
     public void SetBarValues(float NitrogenVal, float moistureVal, float yieldVal)
     {
+        NitrogenVal *= 1000f;
+        NitrogenVal = MathF.Round(NitrogenVal);
+
+        moistureVal *= 100000f;
+        moistureVal = MathF.Round(moistureVal);
+        moistureVal /= 100f;
+
         NitrogenBar.ChangeValue(NitrogenVal);
         MoistureBar.ChangeValue(moistureVal);
         YieldBar.ChangeValue(yieldVal);
@@ -282,21 +310,35 @@ public class GameManager : MonoBehaviour
 
     public void SetWeather(string weather)
     {
-        if (weather.Equals("Rainy"))
+        if (weather.Equals("rainy"))
         {
             SetWeatherToRainy();
         }
-        else if (weather.Equals("Sunny"))
+        else if (weather.Equals("sunny"))
         {
             SetWeatherToSunny();
         }
-        else if (weather.Equals("Windy"))
+        else if (weather.Equals("windy"))
         {
             SetWeatherToWindy();
         }
-        else if (weather.Equals("Snowy"))
+        else if (weather.Equals("snowy"))
         {
             SetWeatherToSnow();
         }
+    }
+    public void AddFert()
+    {
+        connector.RequestFertilizer(40, 0.7f);
+    }
+
+    public void ShowMessageText(string message)
+    {
+        MessageText.text = message;
+    }
+
+    public void ResetMessageText()
+    {
+        MessageText.text = "";
     }
 }

@@ -40,6 +40,7 @@ public class FarmPlot : MonoBehaviour
         
         spriteRenderer.sprite = spritePhase3;
         rectTransform.localScale = new Vector2(0.75f, 0.75f);
+        //gameObject.transform.GetChild(0).GetComponent<RectTransform>.localscale *= 1.25f;
     }
 
     public void SetSprites( Sprite one, Sprite two, Sprite three)
@@ -48,7 +49,7 @@ public class FarmPlot : MonoBehaviour
         spritePhase2 = two;
         spritePhase3 = three;
 
-        ChangeStateToPhase1();
+        
     }
 
 }
