@@ -87,6 +87,10 @@ public class GameManager : MonoBehaviour
                 ChangeAllFarmsToPhase3();
             }
 
+            if (NitrogenBar.CurrentValue < NitrogenBar.MaximumValue / 3f)
+            {
+                ShowMessageText("soil needs more fertilizer.");
+            }
 
             TotalTime += Time.deltaTime;
             phaseTime += Time.deltaTime;
@@ -233,13 +237,16 @@ public class GameManager : MonoBehaviour
         {
             HasSownSeed = true;
             Time.timeScale = 1f;
+            ShowMessageText("awesome stuff");
         }
         else
         {
-            SendMessage("TO SowSeed remember to till SetWeather land first!");
+            ShowMessageText("TO SowSeed remember to till land first!");
         }
         
     }
+
+    
 
     public void ClickOnWorldmap()
     {

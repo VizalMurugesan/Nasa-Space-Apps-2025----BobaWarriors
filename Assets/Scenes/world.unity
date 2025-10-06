@@ -1482,7 +1482,7 @@ MonoBehaviour:
   NitrogenBar: {fileID: 666924351}
   YieldBar: {fileID: 72240681}
   MoistureBar: {fileID: 2001149332}
-  MessageText: {fileID: 0}
+  MessageText: {fileID: 857767733}
 --- !u!4 &211362031
 Transform:
   m_ObjectHideFlags: 0
