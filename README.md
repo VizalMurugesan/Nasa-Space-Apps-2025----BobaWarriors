@@ -6,6 +6,7 @@
 [![SMARTFarming Demo](https://github.com/user-attachments/assets/30e14f11-1af0-4e36-8424-d85f5eb05ad9)](https://www.youtube.com/watch?v=MI6xEUxOHEw)  
 
 **[Watch the demo](https://www.youtube.com/watch?v=MI6xEUxOHEw)**  
+**[NASA Space Apps 2025 Submission](https://www.spaceappschallenge.org/2025/find-a-team/bobawarriors/?tab=project)**
 
 ### Overview  
 **SMARTFarming** is an **interactive crop management simulator** that combines real-world **soil** and **weather data** with **user-driven farming decisions**. Through an intuitive interface, users can:  
@@ -41,7 +42,7 @@ The simulation dynamically responds to player actions, showing changes in **soil
 ---
 
 ## 🛠️ Development Environments  
-| Purpose | Recommended Tool |
+| Purpose | Tool |
 |----------|------------------|
 | **Unity Development** | Unity Hub + Editor |
 | **C# Scripting** | Visual Studio |
@@ -84,8 +85,7 @@ cd Nasa-Space-Apps-2025----BobaWarriors
 
    ✅ **Expected output when running correctly:**  
    ```
-   * Serving Flask app 'game'
-   * Running on http://127.0.0.1:5000
+   Python crop server listening on 127.0.0.1:5005
    ```
 
 ---
