@@ -1,48 +1,142 @@
-# SmartFarming
+# 🌾 SMARTFarming  
+**Simulated Management of Agricultural Resources and Terrain for Farming**
 
-Smartfarming is an interactive crop management simulator that combines real-world soil and weather data with user-driven farming decisions. Through its interface, users can choose crops, set management strategies, and watch their simulations progress under realistic conditions. While Smartfarming is designed to be globally applicable, the current hackathon version focuses on one specific location for feasibility.
+---
 
-**Getting Started**
+### Overview  
+**SMARTFarming** is an **interactive crop management simulator** that combines real-world **soil** and **weather data** with **user-driven farming decisions**. Through an intuitive interface, users can:  
+- Select a location on the world map.  
+- Choose a start date for farming.  
+- Manage crops using realistic soil and weather conditions.  
+- Make decisions on ploughing, sowing, watering, and fertilizing.  
 
-Development Software- Unity
+The simulation dynamically responds to player actions, showing changes in **soil moisture**, **fertility**, and **predicted yield** in real time. While the system is designed for **global scalability**, this hackathon prototype focuses on a **single region** for feasibility.  
 
-C# environment - Visual Studio Recommended
+---
 
-Python environment- Visual Studio Code Recommended
+## 🚀 Features  
+- 🌍 **Real-world data integration** via NASA POWER (weather) and WOFOST (soil).  
+- 🌾 **Dynamic crop simulation** using the **Python Crop Simulation Environment (PCSE)**.  
+- 🧑‍🌾 **Interactive management tools** — plough, sow, water, and fertilize your fields.  
+- 📊 **Live feedback system** with soil moisture, fertility, and yield indicators.  
+- 🕹️ **Time controls** for adjusting simulation speed and observing crop growth cycles.  
 
-Weather Dataset- NASA POWER Daily API –
+---
 
-Soil Dataset- WOrld FOod STudies (WOFOST)
+## 🧩 Tech Stack  
 
-Model- Python Crop Simulation Environment (PCSE)
+| Component | Technology |
+|------------|-------------|
+| **Game Engine** | Unity |
+| **Frontend Language** | C# (via Unity) |
+| **Backend Server** | Python |
+| **Weather Data** | [NASA POWER Daily API](https://power.larc.nasa.gov/) |
+| **Soil Data** | WOrld FOod STudies (WOFOST) |
+| **Crop Model** | Python Crop Simulation Environment ([PCSE](https://pcse.readthedocs.io/)) |
 
-**Setting up the environment-**
+---
 
-1. Clone the repository from Github- [VizalMurugesan/Nasa-Space-Apps-2025----BobaWarriors](https://github.com/VizalMurugesan/Nasa-Space-Apps-2025----BobaWarriors/tree/main)
-2. Install Required Python Packages
-   
-```pip install pcse pandas matplotlib requests```
+## 🛠️ Development Environments  
+| Purpose | Recommended Tool |
+|----------|------------------|
+| **Unity Development** | Unity Hub + Editor |
+| **C# Scripting** | Visual Studio |
+| **Python Server** | Visual Studio Code |
 
-1. Run game.py, which is the data server the project.
-3. Launch Unity Hub, add the cloned project folder, and open it in Unity. Allow Unity to automatically import assets and dependencies (this may take a few minutes).
-4. Once loaded, click Play in the Unity Editor to run the simulation!
+---
 
-**Guide to Use the SmartFarming-**
+## ⚙️ Setup Instructions  
 
-* When you open the project, you’re greeted with a world map where you can click on any location to begin your simulation.
-* After choosing a location, select the month and date when you want to begin your farming journey.
-* Once selected, a mockup farm appears, displaying actual soil data and weather conditions from your chosen location.
-* You’ll have access to four farming tools plough, sow, water, and fertilizer. Start by ploughing the land, sow the seeds to begin crop growth, and then use water and fertilizer to maintain and improve your crops.
-* Three bars at the top display soil moisture, soil fertility, and predicted yield. These values dynamically change based on your actions for example, watering increases moisture, while fertilizing improves fertility and yield.
-* Two buttons allow you to control time: the upward button speeds up the simulation, increasing the day counter as time progresses, while the downward button slows it down for closer observation of crop growth.
-* The simulation ends when the crop reaches maturity, showing yield outcomes and lesson.
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/VizalMurugesan/Nasa-Space-Apps-2025----BobaWarriors.git
+cd Nasa-Space-Apps-2025----BobaWarriors
+```
 
-**Authors**
+---
 
-**Daiwik Bhola –** **daiwik.bhola@gmail.com**
+### 2️⃣ Python Environment Setup  
 
-**Kenneth Renald Hoesien-** **KennethRenald@gmail.com**
+1. **Create a virtual environment (optional but recommended):**  
+   ```bash
+   python -m venv venv
+   source venv/bin/activate       # macOS/Linux
+   venv\Scripts\activate          # Windows
+   ```
 
-**Shubham Verma-** **vermashubham1980@gmail.com**
+2. **Install required dependencies:**  
+   ```bash
+   pip install pcse pandas matplotlib requests
+   ```
 
-**Vizal Murugesan-** **vizal.rmurugesan@gmail.com**
+3. **Run the Python server (`game.py`):**  
+   ```bash
+   python game.py
+   ```
+   This script initializes a local data server that Unity communicates with for fetching weather and soil data.  
+   - By default, it runs on `http://localhost:5000`.  
+   - Ensure the terminal stays open while Unity is running.  
+   - If you change the port, update the corresponding Unity connection URL in the project’s scripts.
+
+   ✅ **Expected output when running correctly:**  
+   ```
+   * Serving Flask app 'game'
+   * Running on http://127.0.0.1:5000
+   ```
+
+---
+
+### 3️⃣ Unity Setup  
+
+1. **Launch Unity Hub** and click **Add Project**.  
+2. Select the cloned folder and open it in Unity.  
+3. Allow Unity to automatically import assets and dependencies (this may take a few minutes).  
+4. Once the project loads, click **▶ Play** in the Unity Editor to start the simulation.  
+
+---
+
+## 🕹️ How to Play  
+
+1. **Select a Location:**  
+   Begin on a world map where you can click any location to start.  
+
+2. **Choose a Start Date:**  
+   Pick the month and date to begin your farming season.  
+
+3. **Simulate and Manage:**  
+   Your farm scene appears with soil and weather data from the chosen location.  
+   Use the available tools:  
+   - **Plough** – prepare the soil.  
+   - **Sow** – plant seeds.  
+   - **Water** – increase soil moisture.  
+   - **Fertilize** – boost soil fertility and yield.  
+
+4. **Monitor Crop Stats:**  
+   Watch the three bars at the top:  
+   - **Soil Moisture** 🌧️  
+   - **Soil Fertility** 🌿  
+   - **Predicted Yield** 🌾  
+
+5. **Control Time:**  
+   - ⏫ **Speed Up** – advance days quickly.  
+   - ⏬ **Slow Down** – observe crop growth in detail.  
+
+6. **End of Simulation:**  
+   When the crop matures, results display yield outcomes and lessons learned.  
+
+---
+
+## 🧑‍💻 Authors  
+
+| Name | Email |
+|------|--------|
+| **Daiwik Bhola** | [daiwik.bhola@gmail.com](mailto:daiwik.bhola@gmail.com) |
+| **Kenneth Renald Hoesien** | [KennethRenald@gmail.com](mailto:KennethRenald@gmail.com) |
+| **Shubham Verma** | [vermashubham1980@gmail.com](mailto:vermashubham1980@gmail.com) |
+| **Vizal Murugesan** | [vizal.rmurugesan@gmail.com](mailto:vizal.rmurugesan@gmail.com) |
+
+---
+
+## 🌟 Acknowledgements  
+This project was developed as part of **NASA Space Apps 2025 – Team BobaWarriors**.  
+Special thanks to **NASA POWER**, **WOFOST**, and the **PCSE** developers for open-access data and tools enabling this simulation.  
