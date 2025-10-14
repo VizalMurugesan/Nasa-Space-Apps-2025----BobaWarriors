@@ -3,6 +3,10 @@
 
 ---
 
+[![SMARTFarming Demo](https://github.com/user-attachments/assets/30e14f11-1af0-4e36-8424-d85f5eb05ad9)](https://www.youtube.com/watch?v=MI6xEUxOHEw)  
+
+**[Watch the demo](https://www.youtube.com/watch?v=MI6xEUxOHEw)**  
+
 ### Overview  
 **SMARTFarming** is an **interactive crop management simulator** that combines real-world **soil** and **weather data** with **user-driven farming decisions**. Through an intuitive interface, users can:  
 - Select a location on the world map.  
